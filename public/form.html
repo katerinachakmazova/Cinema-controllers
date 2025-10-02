@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовити</title>
+    <link rel="shortcut icon" href="./assets/icons/siteicon.png" type="image/png">
+    <link rel="stylesheet" href="./assets/styles/form.css">
+  </head>
+  <body>
+    <header>
+      <img src="./assets/images/logo.png" alt="Логотип">
+      <nav>
+        <a href="index.html">На головну</a>
+      </nav> 
+    </header>
+    <main>
+      <h1>Замовити автомобіль</h1>
+      <form id="form">
+        <div id="forminfo">
+          <fieldset>
+            <legend>Персональні дані</legend>
+            <div>
+              <label for="name">Ім'я</label>
+              <input id="name" type="text" placeholder="Ім'я" required spellcheck="true">
+            </div>
+            <div>
+              <label for="lastname">Прізвище</label>
+              <input id="lastname" type="text" placeholder="Прізвище">
+            </div>
+            <div>
+              <label for="birthdate">Дата нар.</label>
+              <input type="date" value="2000-12-31" max="2006-11-10" id="birthdate" required>
+            </div>
+            <div class="gender">
+             <label>Стать:</label>
+             <label for="genderf">Жінка</label>
+             <input type="radio" id="genderf" name="gender">
+             <label for="genderm">Чоловік</label>
+             <input type="radio" id="genderm" name="gender" checked>
+            </div>
+            <div>
+              <label for="drvexp">Досвід водіння</label>
+              <select id="drvexp">
+                <option value="---" selected>---</option>
+                <option value="less1">експерт</option>
+                <option value="1to5">більше 10</option>
+                <option value="5to10">5-10 років</option>
+                <option value="10to20">2-5 років</option>
+                <option value="20plus">початківець</option>
+              </select>
+            </div>
+           </fieldset>
+           <fieldset>
+            <legend>Контактні дані</legend>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Email" required>
+            </div>
+            <div>
+              <label for="phone">Телефон</label>
+              <input id="phone" type="tel" placeholder="Телефон" required>
+            </div>
+            <div>
+              <label for="address">Адреса</label>
+              <textarea id="address" placeholder="Aдреса" rows="3" cols="17"></textarea>
+            </div>
+           </fieldset>
+           <fieldset>
+            <legend>Характеристики автомобіля</legend>
+            <div>
+              <label for="brand">Бренд</label>
+              <select id="brand">
+                <option value="---" selected>---</option>
+                <option value="Ford">Ford</option>
+                <option value="BMW">BMW</option>
+                <option value="Toyota">Toyota</option>
+              </select>
+            </div>
+            <div>
+              <label for="model">Модель</label>
+              <select id="model">
+                <option value="---" selected>---</option>
+                <option value="Ford Mustang">Ford Mustang</option>
+                <option value="Ford F-150">Ford F-150</option>
+                <option value="BMW 3 Series">BMW 3 Series</option>
+                <option value="BMW X5">BMW X5</option>
+                <option value="Toyota Carolla">Toyota Carolla</option>
+                <option value="Toyota Land Cruiser">Toyota Land Cruiser</option>
+              </select>
+            </div>
+            <div id="checkbox">
+              <label for="used">Вживане</label>
+              <input type="checkbox" id="used">
+            </div>
+            <div class="radio-main">
+              <div class="radio">
+                <label for="red">червоний</label>
+                <input id="red" type="radio" name="color">
+              </div>
+              <div class="radio">
+                <label for="black">чорний</label>
+                <input id="black" type="radio" name="color">
+              </div>
+              <div class="radio">
+                <label for="blue">блакитний</label>
+                <input id="blue" type="radio" name="color">
+              </div>
+              <div class="radio">
+                <label for="white">білий</label>
+                <input id="white" type="radio" name="color">
+              </div>
+              <div class="radio">
+                <label for="grey">сірий</label>
+                <input id="grey" type="radio" name="color">
+              </div>
+            </div>
+            <div class="datalist">
+              <label for="price">Ціна</label>
+              <input 
+              id="price" 
+              type="range"
+              min="0"
+              max="80"
+              step="10"
+              list="money"
+              class="range">
+              <datalist id="money"> 
+                <option value="0">0</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+              </datalist>
+            </div>
+           </fieldset>
+        </div>
+        <div class="buttons">
+          <button type="submit">Надіслати</button>
+          <button type="reset">Очистити</button>
+        </div>
+       </form>
+    </main>
+    <footer>
+      <div>
+        <p>Адреса: м.Київ, вул. Бабієнків 17</p>
+      </div>
+      <div>
+        <p>Телефон</p>
+        <a href="tel:+380660000000" target="_blank">+380660000000</a>
+      </div>
+      <div>
+        <p>Електронна пошта</p>
+      <a href="mailto:example@example.com" target="_blank">example@example.com</a>
+      </div>
+      <div>
+        <p>Адреса сайту</p>
+      <a href="http://example.com" target="_blank">http://example.com</a>
+      </div>
+    </footer>
+  </body>
