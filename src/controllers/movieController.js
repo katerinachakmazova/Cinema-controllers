@@ -34,7 +34,6 @@ class MovieController {
         WHERE movie_id = $1;`,
         [id]
       );
-      console.log(movie.rows[0])
       res.json(movie.rows[0]);
     } catch (error) {
       console.log(error);
@@ -50,7 +49,7 @@ class MovieController {
         ($1, $2, $3,
         (SELECT studio_id FROM studios WHERE title=$4), (SELECT genre_id FROM genres WHERE title=$5))
         RETURNING *`,
-        [title, release_year, poster, studio, genre ]
+        [title, release_year, poster, studio, genre]
       );
       res.json(newMovie.rows[0]);
     } catch (error) {
@@ -59,8 +58,7 @@ class MovieController {
   }
   async updateMovie(req, res) {
     try {
-      const { title, release_year, poster, studio, genre, movie_id } =
-        req.body;
+      const { title, release_year, poster, studio, genre, movie_id } = req.body;
       const updatedMovie = await db.query(
         `
         UPDATE movies SET title=$1, release_year=$2, poster=$3, studio_id=(

@@ -55,8 +55,14 @@ class DirectorController {
   }
   async updateDirector(req, res) {
     try {
-      const { full_name, birth_year, death_year, foto, nationality, director_id } =
-        req.body;
+      const {
+        full_name,
+        birth_year,
+        death_year,
+        foto,
+        nationality,
+        director_id,
+      } = req.body;
       const updatedDirector = await db.query(
         `
         UPDATE directors SET full_name=$1, birth_year=$2, death_year=$3, foto=$4, nationality_id=(
@@ -91,10 +97,9 @@ class DirectorController {
       );
       if (delDirector.rows.length > 0) {
         res.json(delDirector.rows[0]);
-      }
-      else{
+      } else {
         res.status(404);
-        res.send('actor not found')
+        res.send('actor not found');
       }
     } catch (error) {
       console.log(error);

@@ -65,7 +65,12 @@ class ActorController {
         RETURNING *`,
         [full_name, birth_year, death_year, foto, nationality, actor_id]
       );
-      res.json(updatedActor.rows[0]);
+      if (updatedActor.rows.length > 0) {
+        res.json(updatedActor.rows[0]);
+      } else {
+        res.status(404);
+        res.send('actor not found');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -85,10 +90,9 @@ class ActorController {
       );
       if (delActor.rows.length > 0) {
         res.json(delActor.rows[0]);
-      }
-      else{
+      } else {
         res.status(404);
-        res.send('actor not found')
+        res.send('actor not found');
       }
     } catch (error) {
       console.log(error);
