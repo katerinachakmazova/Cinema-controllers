@@ -1,33 +1,5 @@
 const db = require('../../db');
 
-// let actors = [
-//   {
-//     id: 1,
-//     fullName: 'Meryl Streep',
-//     birthYear: 1949,
-//     nationality: 'American',
-//   },
-//   {
-//     id: 2,
-//     fullName: 'Idris Elba',
-//     birthYear: 1972,
-//     nationality: 'British',
-//   },
-//   {
-//     id: 3,
-//     fullName: 'Penélope Cruz',
-//     birthYear: 1974,
-//     nationality: 'Spanish',
-//   },
-//   {
-//     id: 4,
-//     fullName: 'Ken Watanabe',
-//     birthYear: 1959,
-//     nationality: 'Japanese',
-//   },
-// ];
-
-// res.status(200).send(actors);
 class ActorController {
   async getActors(req, res) {
     try {
@@ -60,17 +32,10 @@ class ActorController {
         WHERE actor_id = $1`,
         [id]
       );
-      console.log(actor.rows[0]);
       res.json(actor.rows[0]);
     } catch (error) {
       console.log(error);
     }
-    // const [actor] = actors.filter((actor) => actor.id === Number(id));
-    // if (actor) {
-    //   res.status(200).send(actor);
-    // } else {
-    //   res.status(404).send('Actor not found');
-    // }
   }
   async createActor(req, res) {
     try {
@@ -87,15 +52,9 @@ class ActorController {
     } catch (error) {
       console.log(error);
     }
-    // const newActor = { ...body };
-    // actors.push(newActor);
-    // res.status(201).send(newActor);
   }
   async updateActor(req, res) {
     try {
-      // const {
-      //   params: { id },
-      // } = req;
       const { full_name, birth_year, death_year, foto, nationality, actor_id } =
         req.body;
       const updatedActor = await db.query(
@@ -110,12 +69,6 @@ class ActorController {
     } catch (error) {
       console.log(error);
     }
-    // const newActors = actors.map((actor) =>
-    //   actor.id === Number(id) ? body : actor
-    // );
-    // console.log(newActors);
-    // actors = newActors;
-    // res.status(201).send(body);
   }
 
   async deleteActor(req, res) {
@@ -140,8 +93,6 @@ class ActorController {
     } catch (error) {
       console.log(error);
     }
-    // actors = actors.filter((actor) => actor.id !== Number(id));
-    // res.status(200).send('Okay');
   }
 }
 
