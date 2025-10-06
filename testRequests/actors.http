@@ -1,4 +1,4 @@
-GET http://localhost:5000/actors/1
+GET http://localhost:5000/actors/3
 ###
 GET http://localhost:5000/actors
 ###
@@ -6,10 +6,19 @@ POST http://localhost:5000/actors HTTP/1.1
 Content-Type: application/json
 
 {
-  "fullName": "Bred Pitt",
-  "birthYear": 1963,
-  "nationality": "British"
+  "full_name": "Bred Pitt",
+  "birth_year": "1963-01-01",
+  "nationality": "GB"
 }
-
 ###
-DELETE http://localhost:5000/actors/1
+PUT http://localhost:5000/actors HTTP/1.1
+Content-Type: application/json
+
+{
+    "full_name": "Hugh Laurie",
+    "birth_year": "1978-06-10",
+    "nationality": "GB",
+    "actor_id": 
+}
+###
+DELETE http://localhost:5000/actors/95
