@@ -34,7 +34,12 @@ class MovieController {
         WHERE movie_id = $1;`,
         [id]
       );
-      res.json(movie.rows[0]);
+      if (movie.rows.length > 0) {
+        res.json(movie.rows[0]);
+      } else {
+        res.status(404);
+        res.send('movie not found');
+      }
     } catch (error) {
       console.log(error);
     }

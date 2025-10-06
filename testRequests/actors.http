@@ -1,4 +1,4 @@
-GET http://localhost:5000/actors/3
+GET http://localhost:5000/actors/9
 ###
 GET http://localhost:5000/actors
 ###
@@ -18,7 +18,7 @@ Content-Type: application/json
     "full_name": "Hugh Laurie",
     "birth_year": "1978-06-10",
     "nationality": "GB",
-    "actor_id": 
+    "actor_id": 98
 }
 ###
-DELETE http://localhost:5000/actors/95
+DELETE http://localhost:5000/actors/98

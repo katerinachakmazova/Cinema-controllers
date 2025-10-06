@@ -24,14 +24,19 @@ class StudioController {
         studios.title, 
         found_year, 
         logo, 
-        loc.title as location,
+        loc.title as location
         FROM studios
         JOIN locations as loc
         USING(location_id)
         WHERE studio_id = $1;`,
         [id]
       );
-      res.json(studio.rows[0]);
+      if (studio.rows.length > 0) {
+        res.json(studio.rows[0]);
+      } else {
+        res.status(404);
+        res.send('studio not found');
+      }
     } catch (error) {
       console.log(error);
     }

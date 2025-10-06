@@ -32,7 +32,12 @@ class DirectorController {
         WHERE director_id = $1`,
         [id]
       );
-      res.json(director.rows[0]);
+      if (director.rows.length > 0) {
+        res.json(director.rows[0]);
+      } else {
+        res.status(404);
+        res.send('director not found');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -71,16 +76,15 @@ class DirectorController {
         RETURNING *`,
         [full_name, birth_year, death_year, foto, nationality, director_id]
       );
-      res.json(updatedDirector.rows[0]);
+      if (updatedDirector.rows.length > 0) {
+        res.json(updatedDirector.rows[0]);
+      } else {
+        res.status(404);
+        res.send('director not found');
+      }
     } catch (error) {
       console.log(error);
     }
-    // const newActors = actors.map((actor) =>
-    //   actor.id === Number(id) ? body : actor
-    // );
-    // console.log(newActors);
-    // actors = newActors;
-    // res.status(201).send(body);
   }
 
   async deleteDirector(req, res) {
@@ -99,7 +103,7 @@ class DirectorController {
         res.json(delDirector.rows[0]);
       } else {
         res.status(404);
-        res.send('actor not found');
+        res.send('director not found');
       }
     } catch (error) {
       console.log(error);

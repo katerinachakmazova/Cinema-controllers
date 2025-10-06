@@ -1,4 +1,4 @@
-GET http://localhost:5000/directors/13
+GET http://localhost:5000/studios/9
 ###
 GET http://localhost:5000/studios
 ###
@@ -18,7 +18,7 @@ Content-Type: application/json
     "title": "Warner Brothers-2",
     "found_year": "1978-06-10",
     "location": "Toronto",
-    "studio_id": 10
+    "studio_id": 12
 }
 ###
-DELETE http://localhost:5000/studios/11
+DELETE http://localhost:5000/studios/12

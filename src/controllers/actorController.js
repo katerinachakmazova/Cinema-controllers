@@ -32,7 +32,12 @@ class ActorController {
         WHERE actor_id = $1`,
         [id]
       );
-      res.json(actor.rows[0]);
+       if (actor.rows.length > 0) {
+        res.json(actor.rows[0]);
+      } else {
+        res.status(404);
+        res.send('actor not found');
+      }
     } catch (error) {
       console.log(error);
     }
