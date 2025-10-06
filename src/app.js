@@ -2,24 +2,17 @@ const fs = require('fs');
 const path = require('path');
 // ============================
 const express = require('express');
+const cors = require('cors')
 // ==============================
-const {getTime, showTime} = require('./middleware/time.mw')
-// const actorController = require('./controllers/actorController');
-// const actorRouter = require('./routers/actorRouters')
 const router = require('./routers')
-const app = express();
+const {errorHandlers: {errorHandler, validationErrorHandler}, time: {getTime, showTime}} = require('./middleware')
 
+const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(express.static(path.resolve( 'public')));
-
-app.use('/time', getTime, showTime);
-// app.use(showTime);
-
+app.use(validationErrorHandler, errorHandler)
 app.use(router);
-// app.get('/actors', actorController.getActors);
-// app.get('/actors/:id', actorController.getActorById)
-// app.post('/actors/', actorController.createActor);
-// app.put('/actors', actorController.updateActor)
-// app.delete('/actors/:id', actorController.deleteActor)
+app.use('/time', getTime, showTime);
 module.exports = app;
 

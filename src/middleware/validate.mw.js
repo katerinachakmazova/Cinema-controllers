@@ -7,15 +7,7 @@ module.exports.validatePerson = async (req, res, next) => {
     req.body = validatedPerson;
     next();
   } catch (error) {
-    next(`Error is ${error}`)
+    next(`Error is ${error.errors}`)
   }
-  // ; PERSON_VALIDATION_SCHEMA.validate(body)
-  // .then((validatedPerson) => {
-  //   req.body = validatedPerson;
-  //   next();
-  // })
-  // .catch((error) => {
-  //   // res.status(500).send(error); //end pipeline
-  //   next(`Error is ${error}`)
-  // })
+
 }
